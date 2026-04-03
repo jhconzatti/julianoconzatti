@@ -1,0 +1,341 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 152 48% 44%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 152 48% 54%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 152 48% 44%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 152 48% 44%;
+
+    --radius: 0.75rem;
+    
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(152 48% 44%), hsl(152 48% 54%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --shadow-elegant: 0 10px 40px -10px hsl(152 48% 44% / 0.2);
+    --shadow-glow: 0 0 40px hsl(152 48% 54% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 152 48% 44%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 152 48% 54%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 152 48% 44%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 152 48% 54%;
+    
+    /* Custom design tokens for dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(152 48% 44%), hsl(152 48% 54%));
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 12%));
+    --shadow-elegant: 0 10px 40px -10px hsl(152 48% 44% / 0.4);
+    --shadow-glow: 0 0 60px hsl(152 48% 54% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .premium-glass-card {
+    @apply relative overflow-hidden border border-border/50 bg-card/55 backdrop-blur-sm;
+    transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 500ms ease, border-color 500ms ease;
+  }
+
+  .premium-glass-card:hover {
+    @apply -translate-y-1 border-primary/50 shadow-glow;
+  }
+
+  .premium-glass-card::before {
+    content: "";
+    position: absolute;
+    inset: -24px auto -24px -40%;
+    width: 42%;
+    transform: rotate(14deg);
+    background: linear-gradient(90deg, transparent 0%, hsl(0 0% 100% / 0.18) 50%, transparent 100%);
+    opacity: 0;
+    filter: blur(6px);
+    transition: left 780ms ease, opacity 600ms ease;
+    pointer-events: none;
+  }
+
+  .premium-glass-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(140deg, hsl(0 0% 100% / 0.07), transparent 45%, hsl(var(--primary) / 0.08));
+    opacity: 0;
+    transition: opacity 500ms ease;
+    pointer-events: none;
+  }
+
+  .premium-glass-card:hover::before {
+    left: 120%;
+    opacity: 1;
+  }
+
+  .premium-glass-card:hover::after {
+    opacity: 1;
+  }
+
+  .premium-tag {
+    @apply rounded-md border border-border/60 bg-secondary/80 text-secondary-foreground;
+    transition: all 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .premium-tag:hover {
+    @apply border-primary/40 bg-primary/15 text-primary;
+    box-shadow: 0 6px 16px hsl(var(--primary) / 0.18);
+  }
+
+  .hero-photo-cinematic {
+    animation: hero-photo-cinematic 1100ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+    transform-origin: center;
+  }
+
+  .hero-name-cinematic {
+    animation: hero-name-cinematic 1200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    letter-spacing: 0.01em;
+    text-shadow: 0 10px 30px hsl(var(--primary) / 0.2);
+  }
+
+  .hero-name-cinematic .surname {
+    transition: filter 420ms ease, transform 420ms ease;
+    display: inline-block;
+  }
+
+  .hero-name-cinematic:hover .surname {
+    filter: drop-shadow(0 12px 24px hsl(var(--primary) / 0.35));
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  .hero-role-premium {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    background: linear-gradient(90deg, hsl(var(--foreground) / 0.85), hsl(var(--primary) / 0.95), hsl(var(--foreground) / 0.85));
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: role-shimmer 6s ease-in-out infinite, hero-role-enter 1150ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+    text-shadow: 0 6px 18px hsl(var(--primary) / 0.14);
+  }
+
+  .hero-subtext-cinematic {
+    animation: hero-subtext-cinematic 1300ms ease both;
+  }
+
+  .jc-glass-loop {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    isolation: isolate;
+  }
+
+  .jc-glass-loop::before {
+    content: "";
+    position: absolute;
+    inset: -6px auto -6px -60%;
+    width: 65%;
+    transform: rotate(14deg);
+    background: linear-gradient(90deg, transparent 0%, hsl(0 0% 100% / 0.5) 48%, transparent 100%);
+    filter: blur(2px);
+    animation: jc-loop-reflection 5.8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .jc-glass-loop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 0.4rem;
+    background: linear-gradient(140deg, hsl(0 0% 100% / 0.16), transparent 42%, hsl(var(--primary) / 0.22));
+    opacity: 0.5;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: -2;
+  }
+}
+
+@keyframes hero-photo-cinematic {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) translateY(18px) rotate(-1.8deg);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-name-cinematic {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-role-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-subtext-cinematic {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes role-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes jc-loop-reflection {
+  0%,
+  12% {
+    left: -70%;
+    opacity: 0;
+  }
+  26% {
+    left: 135%;
+    opacity: 0.95;
+  }
+  100% {
+    left: 135%;
+    opacity: 0;
+  }
+}
