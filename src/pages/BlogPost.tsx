@@ -1,145 +1,44 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, Calendar, Tag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import React, { useEffect, useState } from "react";
-import { client } from "../lib/sanityClient";
 import BlockContent from "@sanity/block-content-to-react";
-import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/lib/sanityClient";
+import { urlFor } from "@/services/sanity/posts";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLang } from "@/hooks/use-lang";
+import { useBlogPost } from "@/hooks/use-blog-post";
+import { toLocale } from "@/utils/translations";
 
 // Imports de Ícones
 import { FaLinkedin, FaWhatsapp, FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-// Configura o builder de imagens do Sanity
-const builder = imageUrlBuilder(client);
-function urlFor(source: any) {
-  return builder.image(source);
-}
-
-// --- INTERFACES ---
-interface Author {
-  name: string;
-  image: any;
-}
-
-interface Category {
-  _id: string;
-  title: string;
-}
-
-interface Post {
-  _id: string;
-  title: string;
-  slug: {
-    current: string;
-  };
-  publishedAt: string;
-  body: any;
-  mainImage: any;
-  author: Author | null;
-  category: Category | null; // Categoria singular
-  categories: Category[] | null; // Categoria plural (se for array)
-}
-
-interface RelatedPost {
-  _id: string;
-  title: string;
-  slug: {
-    current: string;
-  };
-}
-
 // --- COMPONENTE PRINCIPAL ---
-const BlogPost: React.FC = () => {
-  const [post, setPost] = useState<Post | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<RelatedPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [postUrl, setPostUrl] = useState("");
-  
+const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t, language } = useLanguage();
+  const { lp } = useLang();
 
-  const locale = language === 'pt' ? 'pt-BR' : language === 'en' ? 'en-US' : 'es-AR';
+  const locale = toLocale(language);
+  const postUrl = window.location.href;
+
+  const { post, isLoading, relatedPosts } = useBlogPost(slug);
 
   useEffect(() => {
-    // Scroll para o topo ao carregar novo post
     window.scrollTo(0, 0);
-    setPostUrl(window.location.href);
-
-    if (!slug) return;
-
-    const fetchPostData = async () => {
-      setLoading(true);
-      setRelatedPosts([]);
-
-      const postQuery = `*[_type == "post" && slug.current == $slug][0] {
-        _id,
-        title,
-        slug,
-        publishedAt,
-        body,
-        mainImage,
-        author->{name, image},
-        category->{_id, title}, 
-        categories[]->{_id, title} 
-      }`;
-
-      try {
-        const data: Post | null = await client.fetch(postQuery, { slug });
-        
-        if (!data || !data._id) {
-          setPost(null);
-          setLoading(false);
-          return;
-        }
-
-        setPost(data);
-        document.title = `${data.title} | Juliano Conzatti`;
-
-        // --- Lógica de Posts Relacionados: COLETAR TODOS OS IDs ---
-        const categoryRefs = [];
-        if (data.category && data.category._id) {
-            categoryRefs.push(data.category._id);
-        }
-        if (data.categories && Array.isArray(data.categories)) {
-            data.categories.forEach(cat => {
-                if (cat._id) categoryRefs.push(cat._id);
-            });
-        }
-        
-        const uniqueCategoryRefs = [...new Set(categoryRefs)]; 
-
-        // --- BUSCA CORRIGIDA: USANDO 'references()' PARA ESTABILIDADE ---
-        if (uniqueCategoryRefs.length > 0) {
-          // Esta é a sintaxe mais estável: busca por documentos que referenciam QUALQUER ID na lista
-          const relatedQuery = `*[_type == "post" && references($categoryIds) && _id != $postId] | order(publishedAt desc) [0...3] {
-            _id,
-            title,
-            slug
-          }`;
-          
-          const relatedData: RelatedPost[] = await client.fetch(relatedQuery, {
-            categoryIds: uniqueCategoryRefs, // Passa a lista de IDs
-            postId: data._id
-          });
-          
-          setRelatedPosts(relatedData.filter(p => p && p.title && p.slug));
-        }
-      } catch (error) {
-        setPost(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPostData();
   }, [slug]);
 
-  if (loading) {
+  useEffect(() => {
+    if (post?.title) {
+      document.title = `${post.title} | Juliano Conzatti`;
+    }
+  }, [post?.title]);
+
+  if (isLoading) {
     return (
       <main className="min-h-screen bg-gradient-to-b from-background to-card">
         <Navigation />
@@ -159,7 +58,7 @@ const BlogPost: React.FC = () => {
           <p className="text-center text-muted-foreground">{t('blogUI.notFound')}</p>
           <div className="text-center mt-8">
             <Button variant="outline" asChild>
-              <Link to="/blog">
+              <Link to={lp('/blog')}>
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 {t('blogUI.back')}
               </Link>
@@ -188,7 +87,7 @@ const BlogPost: React.FC = () => {
           className="mb-8 group"
           asChild
         >
-          <Link to="/blog">
+          <Link to={lp('/blog')}>
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             {t('blogUI.back')}
           </Link>
@@ -274,7 +173,7 @@ const BlogPost: React.FC = () => {
             <h2 className="text-3xl font-bold mb-8 text-center">{t('blogUI.related')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedPosts.map((related) => (
-                <Link to={`/blog/${related.slug.current}`} key={related._id}>
+                <Link to={lp(`/blog/${related.slug.current}`)} key={related._id}>
                   <Card className="premium-glass-card h-full transition-smooth">
                     <CardHeader>
                       <CardTitle className="text-xl text-foreground group-hover:text-primary">
@@ -335,7 +234,7 @@ const BlogPost: React.FC = () => {
             className="group"
             asChild
           >
-            <Link to="/blog">
+            <Link to={lp('/blog')}>
               <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
               {t('blogUI.back')}
             </Link>

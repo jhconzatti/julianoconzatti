@@ -1,27 +1,30 @@
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Search, Target, Microscope, CheckCircle2, X, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect } from "react";
+import { useLang } from "@/hooks/use-lang";
 
 const MestresDiagnostico = () => {
+  const { lp } = useLang();
+
   useEffect(() => {
     document.title = "Mestres em Diagnóstico | Juliano Conzatti";
   }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-background to-card">
-      <ThemeToggle />
+      <Navigation />
       
-      <div className="max-w-5xl mx-auto px-6 py-20">
+      <div className="max-w-5xl mx-auto px-6 pt-28 pb-20">
         <Button
           variant="ghost"
           className="mb-8 group"
           asChild
         >
-          <Link to="/portfolio">
+          <Link to={lp('/portfolio')}>
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             Voltar ao Portfólio
           </Link>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
@@ -12,37 +11,7 @@ import profilePhoto from "@/assets/profile-photo.jpg";
 const GENERATOR_DISABLED_MESSAGE =
   "Sistema desativado provisoriamente: a integração com a API do Gemini foi removida temporariamente por segurança.";
 
-// O "Cérebro" do KCS, baseado no seu Guia de Estilo (KCS - Guia de estilo para edição de artigos.pdf)
-const KCS_GUIDE_PROMPT = `
-Você é um Líder Técnico de Suporte da Senior Sistemas, especialista em KCS (Knowledge-Centered Service).
-Sua missão é revisar o "Texto-Fonte" de um artigo para que ele se adeque 100% ao Guia de Estilo KCS.
 
-REGRAS OBRIGATÓRIAS DO GUIA DE ESTILO:
-
-1.  **Formato de Saída:** Markdown puro.
-2.  **Estrutura:** As palavras-chave **Título**, **Incidente** ou **Dúvida**, **Causa** (se aplicável), **Solução**, **Rótulos** e **Artigo Interno ou Externo?** devem estar em **negrito** (ex: **Título**).
-3.  **Espaçamento:** Deve haver uma linha em branco entre cada seção principal. [cite: 408]
-4.  **Título:** Formato: 'Ronda XT - Rotina - Mensagem/Dúvida'. Não use números de artigo (ex: 10422) nem pontuação final. [cite: 82, 129, 131]
-5.  **Dúvida:** Deve começar com "Como", "Qual", "Quando" ou "Quais". [cite: 165] Artigos de Dúvida **NÃO POSSUEM CAUSA**. [cite: 71]
-6.  **Incidente:** Deve começar com "No Ronda XT, ao tentar/realizar...". [cite: 210] Artigos de Incidente **SEMPRE POSSUEM CAUSA**. [cite: 77]
-7.  **Causa:** Deve começar com "Este incidente ocorre, pois..." ou "Esta mensagem é apresentada, pois...". [cite: 285]
-8.  **Solução:** Deve ser um passo-a-passo (lista numerada) se houver ação. [cite: 324] Usar verbos de ordem (Acesse, Verifique, Execute). [cite: 327] Nomes de parâmetros, arquivos ou mensagens devem estar em 'itálico'. [cite: 292]
-9.  **Rótulos:** Liste 5-7 palavras-chave (em 'itálico') que NÃO estejam no título. [cite: 416, 420]
-10. **Classificação:** Sempre será "Artigo Externo: ficará visível para todos. São os artigos que serão disponibilizados para toda a rede, inclusive externa." [cite: 426]
-
-TAREFA:
-Revise o Texto-Fonte abaixo e retorne APENAS o artigo formatado em Markdown, seguindo TODAS as regras.
-
----
-TEXTO-FONTE:
-{TEXTO_DO_ARTIGO}
----
-
-INÍCIO DA REVISÃO KCS:
-#REVISÃO_ARTIGO
-`;
-
-// --- FIM DA INTEGRAÇÃO DO GEMINI ---
 
 
 const GeradorKCS = () => {
@@ -94,7 +63,6 @@ const GeradorKCS = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
-      <ThemeToggle />
       <Navigation />
       
       {/* Seção 1: Hero */}

@@ -1,4 +1,3 @@
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { Experience } from "@/components/Experience";

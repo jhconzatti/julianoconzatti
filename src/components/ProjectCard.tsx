@@ -5,15 +5,11 @@ interface ProjectCardProps {
   description: string;
   icon: ReactNode;
   tags: string[];
+  variant?: "premium" | "minimal";
   children?: ReactNode;
 }
 
 type PortfolioVisualVariant = "premium" | "minimal";
-
-// Troque aqui para comparar os estilos:
-// "premium" = reflexo de vidro mais evidente + tags com destaque maior
-// "minimal" = reflexo sutil + tags com destaque discreto
-const PORTFOLIO_VISUAL_VARIANT: PortfolioVisualVariant = "premium";
 
 const variantClasses: Record<
   PortfolioVisualVariant,
@@ -45,8 +41,8 @@ const variantClasses: Record<
   },
 };
 
-export const ProjectCard = ({ title, description, icon, tags, children }: ProjectCardProps) => {
-  const visual = variantClasses[PORTFOLIO_VISUAL_VARIANT];
+export const ProjectCard = ({ title, description, icon, tags, variant = "premium", children }: ProjectCardProps) => {
+  const visual = variantClasses[variant];
 
   return (
     <div

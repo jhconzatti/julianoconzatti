@@ -2,6 +2,7 @@ import { BriefcaseBusiness, Landmark, ShieldCheck, Sparkles, Target } from "luci
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { renderWithHighlights } from "@/utils/renderUtils";
 
 interface CertificationData {
   title: string;
@@ -25,17 +26,6 @@ const iconMap = [Sparkles, BriefcaseBusiness, ShieldCheck];
 
 export const Certifications = () => {
   const { t } = useLanguage();
-
-  // Função para aplicar o 'text-gradient' onde houver asteriscos *
-  const renderWithHighlights = (text: string) => {
-    const parts = text.split('*');
-    return parts.map((part, index) => {
-      if (index % 2 === 1) {
-        return <span key={index} className="text-gradient">{part}</span>;
-      }
-      return part;
-    });
-  };
 
   const certificationCategories = (t('certifications.categories') as unknown as CertificationCategory[]) || [];
   const background = (t('certifications.background') as unknown as CertificationBackground) || {

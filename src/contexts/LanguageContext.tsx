@@ -1,49 +1,47 @@
 // src/contexts/LanguageContext.tsx
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { translations, Language } from '../utils/translations';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import i18n from '@/lib/i18n';
+import type { Language, TranslationKey } from '../utils/translations';
 
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: TranslationKey) => string;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const getLanguageFromPath = (): Language | null => {
-    const path = window.location.pathname.toLowerCase();
+  // useTranslation() subscribes this component to i18n and triggers re-render on language
+  // change. With useSuspense:true it also suspends the subtree while the JSON loads.
+  const { t: i18nT } = useTranslation();
 
-    if (path === "/en" || path.startsWith("/en/")) return "en";
-    if (path === "/es" || path.startsWith("/es/")) return "es";
+  const [language, setLanguageState] = useState<Language>(
+    () => (i18n.language as Language) ?? 'pt',
+  );
 
-    return null;
-  };
-
-  // Tenta pegar do localStorage ou define 'pt' como padrão
-  const [language, setLanguage] = useState<Language>(() => {
-    const pathLanguage = getLanguageFromPath();
-    if (pathLanguage) return pathLanguage;
-
-    const saved = localStorage.getItem('app-language');
-    return (saved as Language) || 'pt';
-  });
-
+  // Keep local state in sync when i18n.changeLanguage() is called from anywhere
   useEffect(() => {
-    localStorage.setItem('app-language', language);
-  }, [language]);
+    const handler = (lng: string) => {
+      setLanguageState(lng as Language);
+      localStorage.setItem('app-language', lng);
+    };
+    i18n.on('languageChanged', handler);
+    return () => { i18n.off('languageChanged', handler); };
+  }, []);
 
-  // Função auxiliar para buscar texto aninhado (ex: 'hero.role')
-  const t = (path: string) => {
-    const keys = path.split('.');
-    let current: any = translations[language];
-    
-    for (const key of keys) {
-      if (current[key] === undefined) return path; // Retorna a chave se não achar
-      current = current[key];
-    }
-    return current;
+  const setLanguage = (lang: Language) => {
+    i18n.changeLanguage(lang); // triggers languageChanged -> updates state above
   };
+
+  // returnObjects:true preserves the existing `t('experience.items') as T[]` pattern
+  const t = useMemo(
+    () =>
+      (key: TranslationKey): string =>
+        i18nT(key as string, { returnObjects: true }) as string,
+    [i18nT],
+  );
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

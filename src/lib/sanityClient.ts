@@ -7,7 +7,7 @@ const dataset = "julianoconzatti";
 export const client = createClient({
   projectId: projectId,
   dataset: dataset,
-  apiVersion: "2025-11-08", // Use a data de hoje
-  // useCdn: true, // `false` se você quiser dados frescos sempre, `true` para cache
-  useCdn: false, // Força a busca por dados frescos durante o desenvolvimento
+  apiVersion: "2025-11-08",
+  // Uses Sanity's CDN in production for faster reads; bypasses it in dev for fresh data
+  useCdn: import.meta.env.PROD,
 });

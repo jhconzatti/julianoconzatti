@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLang } from "@/hooks/use-lang";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,19 +14,21 @@ export const Navigation = () => {
   const isMobile = useIsMobile();
   
   const { t } = useLanguage();
+  const { lp, lang } = useLang();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: t('nav.portfolio'), path: "/portfolio" },
-    { name: t('nav.blog'), path: "/blog" },
-  ];
+  const navLinks = useMemo(() => [
+    { name: t('nav.portfolio'), path: lp('/portfolio') },
+    { name: t('nav.blog'), path: lp('/blog') },
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  ], [t, lang]);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -39,7 +42,7 @@ export const Navigation = () => {
         
         {/* LADO ESQUERDO: Logo JC + ThemeToggle (ao lado direito do JC) */}
         <div className="flex items-center gap-6">
-          <Link to="/" className="jc-glass-loop text-2xl font-bold text-gradient hover:opacity-90 transition-opacity duration-500">
+          <Link to={lp('/')} className="jc-glass-loop text-2xl font-bold text-gradient hover:opacity-90 transition-opacity duration-500">
             JC
           </Link>
           {/* ThemeToggle posicionado aqui, visível apenas em Desktop */}

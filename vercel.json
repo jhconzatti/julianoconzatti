@@ -24,22 +24,6 @@
   ],
   "rewrites": [
     {
-      "source": "/en",
-      "destination": "/en.html"
-    },
-    {
-      "source": "/en/",
-      "destination": "/en.html"
-    },
-    {
-      "source": "/es",
-      "destination": "/es.html"
-    },
-    {
-      "source": "/es/",
-      "destination": "/es.html"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

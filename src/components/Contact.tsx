@@ -2,21 +2,10 @@ import { ArrowRight, Linkedin, Mail, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { renderWithHighlights } from "@/utils/renderUtils";
 
 export const Contact = () => {
   const { t } = useLanguage();
-
-  // Função para aplicar o 'text-gradient' onde houver asteriscos *
-  const renderWithHighlights = (text: string) => {
-    const parts = text.split('*');
-    return parts.map((part, index) => {
-      // Se for ímpar, é o texto entre asteriscos -> aplica o gradiente
-      if (index % 2 === 1) {
-        return <span key={index} className="text-gradient">{part}</span>;
-      }
-      return part;
-    });
-  };
 
   return (
     <section id="contact" className="py-20 px-6 bg-background">

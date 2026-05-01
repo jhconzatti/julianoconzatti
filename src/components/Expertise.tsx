@@ -1,6 +1,7 @@
 import { BarChart3, Handshake, SearchCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { renderWithHighlights } from "@/utils/renderUtils";
 
 interface ExpertisePillar {
   title: string;
@@ -12,21 +13,6 @@ const iconMap = [SearchCheck, BarChart3, Handshake];
 
 export const Expertise = () => {
   const { t } = useLanguage();
-
-  const renderWithHighlights = (text: string) => {
-    const parts = text.split("*");
-    return parts.map((part, index) => {
-      if (index % 2 === 1) {
-        return (
-          <span key={index} className="text-gradient">
-            {part}
-          </span>
-        );
-      }
-
-      return part;
-    });
-  };
 
   const pillars = (t("expertise.pillars") as unknown as ExpertisePillar[]) || [];
 

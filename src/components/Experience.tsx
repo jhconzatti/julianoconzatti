@@ -1,7 +1,8 @@
 import { Building2, TrendingUp, Users, Zap } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { renderWithHighlights } from "@/utils/renderUtils";
 
 // Interface para os dados que vêm da tradução
 interface ExperienceData {
@@ -21,7 +22,7 @@ const iconMap = [
   Building2   // Item 4 (Consultor)
 ];
 
-const ExperienceCard = ({ item, index }: { item: ExperienceData; index: number }) => {
+const ExperienceCard = memo(({ item, index }: { item: ExperienceData; index: number }) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   
@@ -83,21 +84,10 @@ const ExperienceCard = ({ item, index }: { item: ExperienceData; index: number }
       </Card>
     </div>
   );
-};
+});
 
 export const Experience = () => {
   const { t } = useLanguage();
-
-  // Função para aplicar o 'text-gradient' onde houver asteriscos *
-  const renderWithHighlights = (text: string) => {
-    const parts = text.split('*');
-    return parts.map((part, index) => {
-      if (index % 2 === 1) {
-        return <span key={index} className="text-gradient">{part}</span>;
-      }
-      return part;
-    });
-  };
 
   // Carrega os itens traduzidos e garante que o TS entenda que é um array
   const experienceItems = (t('experience.items') as unknown as ExperienceData[]) || [];

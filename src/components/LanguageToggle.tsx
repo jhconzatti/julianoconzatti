@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Tooltip,
   TooltipContent,
@@ -8,7 +9,14 @@ import {
 } from "@/components/ui/tooltip";
 
 export const LanguageToggle = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLangChange = (newLang: string) => {
+    const rest = location.pathname.replace(/^\/[^/]*/, '') || '';
+    navigate(`/${newLang}${rest}`);
+  };
 
   return (
     <div className="flex gap-2 bg-secondary/30 p-1.5 rounded-full border border-border/50 backdrop-blur-sm">
@@ -19,7 +27,7 @@ export const LanguageToggle = () => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setLanguage('pt')}
+              onClick={() => handleLangChange('pt')}
               className={`w-8 h-8 rounded-full transition-all hover:bg-background/80 ${
                 language === 'pt' 
                   ? 'bg-background shadow-sm ring-2 ring-primary/20 grayscale-0 scale-110' 
@@ -44,7 +52,7 @@ export const LanguageToggle = () => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setLanguage('en')}
+              onClick={() => handleLangChange('en')}
               className={`w-8 h-8 rounded-full transition-all hover:bg-background/80 ${
                 language === 'en' 
                   ? 'bg-background shadow-sm ring-2 ring-primary/20 grayscale-0 scale-110' 
@@ -76,7 +84,7 @@ export const LanguageToggle = () => {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setLanguage('es')}
+              onClick={() => handleLangChange('es')}
               className={`w-8 h-8 rounded-full transition-all hover:bg-background/80 ${
                 language === 'es' 
                   ? 'bg-background shadow-sm ring-2 ring-primary/20 grayscale-0 scale-110' 

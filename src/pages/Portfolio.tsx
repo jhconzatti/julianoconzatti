@@ -18,45 +18,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLang } from "@/hooks/use-lang";
 import { ProjectCard } from "@/components/ProjectCard";
-
-type PortfolioVisualVariant = "premium" | "minimal";
-
-// Troque aqui para comparar os estilos dos cards WIP:
-// "premium" = reflexo de vidro mais visivel + tags mais destacadas
-// "minimal" = reflexo suave + tags discretas
-const WIP_VISUAL_VARIANT: PortfolioVisualVariant = "premium";
-
-const wipVariantClasses: Record<
-  PortfolioVisualVariant,
-  {
-    card: string;
-    reflection: string;
-    glow: string;
-    tag: string;
-  }
-> = {
-  premium: {
-    card: "hover:shadow-glow transition-all duration-500",
-    reflection:
-      "pointer-events-none absolute -inset-y-10 -left-1/3 w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 blur-md transition-all duration-700 group-hover:left-full group-hover:opacity-100",
-    glow:
-      "pointer-events-none absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100",
-    tag: "text-xs px-2 py-1 rounded-full border border-border/60 bg-muted/80 transition-all duration-300 hover:bg-primary/15 hover:text-primary hover:border-primary/40",
-  },
-  minimal: {
-    card: "hover:shadow-md transition-all duration-400",
-    reflection:
-      "pointer-events-none absolute -inset-y-8 -left-1/4 w-2/5 rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 blur-sm transition-all duration-700 group-hover:left-full group-hover:opacity-80",
-    glow:
-      "pointer-events-none absolute inset-0 bg-gradient-to-br from-white/0 via-transparent to-primary/5 opacity-0 transition-opacity duration-400 group-hover:opacity-70",
-    tag: "text-xs px-2 py-1 rounded-full border border-border/50 bg-muted/70 transition-colors duration-250 hover:bg-primary/10 hover:text-primary hover:border-primary/30",
-  },
-};
 
 const Portfolio = () => {
   const { t } = useLanguage();
-  const wipVisual = wipVariantClasses[WIP_VISUAL_VARIANT];
+  const { lp } = useLang();
 
   const projectTags = {
     julishub: (t('portfolio.projects.julishub.tags') as unknown as string[]) || [],
@@ -85,7 +52,7 @@ const Portfolio = () => {
           className="mb-8 group"
           asChild
         >
-          <Link to="/">
+          <Link to={lp('/')}>
             <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
             {t('portfolio.back')}
           </Link>
@@ -137,10 +104,10 @@ const Portfolio = () => {
             {/* Links secundários agrupados */}
             <div className="flex gap-2">
                 <Button asChild size="sm" variant="ghost" className="text-xs px-2 h-9">
-                <Link to="/guia-ia-suporte">{t('portfolio.guideIA')}</Link>
+                <Link to={lp('/guia-ia-suporte')}>{t('portfolio.guideIA')}</Link>
                 </Button>
                 <Button asChild size="sm" variant="ghost" className="text-xs px-2 h-9">
-                <Link to="/mestres-diagnostico">{t('portfolio.diagnosis')}</Link>
+                <Link to={lp('/mestres-diagnostico')}>{t('portfolio.diagnosis')}</Link>
                 </Button>
             </div>
           </ProjectCard>
@@ -153,7 +120,7 @@ const Portfolio = () => {
             tags={projectTags.gerador}
           >
             <Button asChild size="sm" className="bg-primary/90 hover:bg-primary">
-              <Link to="/gerador-kcs">
+              <Link to={lp('/gerador-kcs')}>
                 <Bot className="w-3 h-3 mr-2" /> {t('portfolio.testTool')}
               </Link>
             </Button>
@@ -212,9 +179,9 @@ const Portfolio = () => {
                   icon: <ClipboardCheck className="w-12 h-12 text-muted group-hover:text-primary transition-colors" />
                 }
               ].map((p, i) => (
-                <div key={i} className={`group bg-card/50 border-border/50 backdrop-blur-sm rounded-lg overflow-hidden relative ${wipVisual.card}`}>
-                  <div className={wipVisual.reflection} />
-                  <div className={wipVisual.glow} />
+                <div key={i} className={`group bg-card/50 border-border/50 backdrop-blur-sm rounded-lg overflow-hidden relative hover:shadow-glow transition-all duration-500`}>
+                  <div className="pointer-events-none absolute -inset-y-10 -left-1/3 w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 blur-md transition-all duration-700 group-hover:left-full group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="h-40 bg-gradient-to-br from-gray-300 to-gray-400 filter grayscale opacity-80 group-hover:filter-none group-hover:opacity-100 transition-all flex items-center justify-center">
                     {p.icon}
                   </div>
@@ -227,7 +194,7 @@ const Portfolio = () => {
                     <p className="text-sm text-foreground/80 mt-3 mb-3 leading-relaxed">{p.description}</p>
                     <div className="flex gap-2 flex-wrap mb-4">
                       {p.stack.split(' • ').map((s, idx) => (
-                        <span key={idx} className={wipVisual.tag}>
+                        <span key={idx} className="text-xs px-2 py-1 rounded-full border border-border/60 bg-muted/80 transition-all duration-300 hover:bg-primary/15 hover:text-primary hover:border-primary/40">
                           {s}
                         </span>
                       ))}

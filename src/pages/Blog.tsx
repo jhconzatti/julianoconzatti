@@ -1,53 +1,25 @@
+import { useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Calendar, Tag } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import React, { useState, useEffect } from "react";
-import { client } from "../lib/sanityClient";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLang } from "@/hooks/use-lang";
+import { usePosts } from "@/hooks/use-posts";
+import { toLocale } from "@/utils/translations";
 
-interface Post {
-  _id: string;
-  title: string;
-  slug: {
-    current: string;
-  };
-  publishedAt: string;
-  excerpt: string;
-  categoryTitles: string[];
-}
-
-const Blog: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
+const Blog = () => {
   const { t, language } = useLanguage();
-  const locale = language === "pt" ? "pt-BR" : language === "en" ? "en-US" : "es-AR";
+  const { lp } = useLang();
+  const { data: posts = [], isLoading: loading } = usePosts();
+  const locale = toLocale(language);
 
   useEffect(() => {
     document.title = `${t("nav.blog")} | Juliano Conzatti`;
     window.scrollTo(0, 0);
-
-    const query = `*[_type == "post"] | order(publishedAt desc) {
-      _id,
-      title,
-      slug,
-      publishedAt,
-      "excerpt": pt::text(body[0]),
-      "categoryTitles": coalesce(
-        category->title,
-        categories[]->title
-      )
-    }`;
-
-    client
-      .fetch(query)
-      .then((data: Post[]) => {
-        setPosts(data);
-        setLoading(false);
-      })
-      .catch(console.error);
-  }, [t]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-background to-card">
@@ -66,7 +38,7 @@ const Blog: React.FC = () => {
             <p className="text-center text-muted-foreground">{t("blogUI.loading")}</p>
           ) : posts.length > 0 ? (
             posts.map((post, index) => (
-              <Link to={`/blog/${post.slug.current}`} key={post._id} className="block group">
+              <Link to={lp(`/blog/${post.slug.current}`)} key={post._id} className="block group">
                 <Card className="premium-glass-card p-6 transition-smooth cursor-pointer" style={{ animationDelay: `${index * 100}ms` }}>
                   <div className="space-y-3">
                     <h2 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">{post.title}</h2>

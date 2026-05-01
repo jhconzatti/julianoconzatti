@@ -1,0 +1,425 @@
+{
+  "hero": {
+    "role": "Ingeniero de Ventas | Ejecutivo Técnico de Negocios | Estrategia Comercial para Enterprise",
+    "subtitle": "Conecto complejidad técnica con decisiones comerciales para que vos cierres oportunidades con más confianza",
+    "description": "Trabajo como *Ingeniero de Ventas* con *12 años* en Software Empresarial (SaaS), transformando requerimientos técnicos complejos en propuestas de valor claras y convincentes para ventas B2B. Lidero discovery técnico, diseño demostraciones consultivas de alto impacto y alineo riesgos, arquitectura y objetivos de negocio para facilitar decisiones ejecutivas. Cuando tecnología y ventas hablan el mismo idioma, las cuentas estratégicas avanzan con más velocidad y previsibilidad.",
+    "cta": "Vamos a Conectar"
+  },
+  "seo": {
+    "title": "Juliano Conzatti | Ingeniero de Ventas",
+    "description": "Ingeniero de Ventas con 12 anos en software empresarial. Conecto complejidad tecnica y estrategia comercial para demostrar valor y acelerar cierres B2B."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "developedBy": "Desarrollado por"
+  },
+  "cookieBanner": {
+    "eyebrow": "Consentimiento de Cookies",
+    "title": "Elegí cómo este portafolio usa cookies y analytics",
+    "description": "Usamos almacenamiento esencial del navegador para recordar idioma, tema y tu elección de consentimiento. Con tu autorización, activamos Vercel Analytics y Google Analytics para medir performance, estabilidad y navegación B2B.",
+    "essentialOnly": "Solo Esenciales",
+    "acceptAll": "Aceptar Todo",
+    "privacyLinkLabel": "Leé la Política de Privacidad",
+    "cookieLinkLabel": "Preferencias de Cookies"
+  },
+  "privacyPolicy": {
+    "title": "Política de Privacidad",
+    "eyebrow": "Privacidad, transparencia y minimización de datos",
+    "summary": "Esta página explica, en lenguaje claro, cómo este portafolio institucional trata información cuando vos navegás el sitio, accedés a contenidos y utilizás los canales de contacto disponibles de Juliano Conzatti.",
+    "lastUpdatedLabel": "Última actualización",
+    "lastUpdatedValue": "1 de mayo de 2026",
+    "currentScopeTitle": "Alcance actual",
+    "currentScopeBody": "Hoy, el sitio usa almacenamiento local del navegador para recordar idioma y tema, activa Vercel Analytics y Google Analytics solo después del consentimiento y depende de proveedores de hosting, CMS y canales externos de contacto para operar. Si en el futuro se habilitan formularios propios, newsletter, áreas autenticadas, automatizaciones interactivas o nuevas integraciones de medición, esta política se actualizará antes de ampliar el tratamiento, con detalle de categorías, finalidades, retención y controles aplicables.",
+    "sections": [
+      {
+        "title": "1. Introducción",
+        "paragraphs": [
+          "Este sitio es un portafolio profesional e institucional. Su finalidad es presentar la trayectoria, contenidos, proyectos, iniciativas y canales de contacto de Juliano Conzatti en un contexto B2B.",
+          "La privacidad forma parte de la calidad del producto. Por eso, esta política busca explicar de manera objetiva qué datos pueden tratarse, por qué ocurre ese tratamiento y qué opciones tenés como titular, en línea con la LGPD y con referencias internacionales como GDPR y CCPA cuando correspondan.",
+          "En esta etapa, el sitio no exige registro para la navegación pública ni depende de datos sensibles para entregar su experiencia principal. El criterio operativo es la minimización: tratar solo lo necesario para funcionamiento, seguridad, analytics autorizados y continuidad de conversaciones profesionales."
+        ]
+      },
+      {
+        "title": "2. Datos recolectados automáticamente",
+        "paragraphs": [
+          "Cuando accedés a este sitio, algunos datos técnicos pueden procesarse automáticamente para permitir la carga de la aplicación, proteger la infraestructura, adaptar la interfaz a tu dispositivo y medir el desempeño del servicio.",
+          "No todo almacenamiento en el navegador cumple la misma función. Preferencias esenciales como idioma, tema y la elección registrada en el banner de cookies pueden guardarse localmente para sostener personalización básica y continuidad de uso, mientras que los analytics opcionales solo se activan cuando vos elegís permitir ese tratamiento.",
+          "Las herramientas de analytics autorizadas pueden recolectar eventos de navegación, páginas visitadas, interacciones, origen de tráfico, información agregada del dispositivo e indicadores de performance para mejora continua, estabilidad operativa y entendimiento de uso del portafolio."
+        ],
+        "bullets": [
+          "Dirección IP y metadatos básicos de conexión normalmente tratados por servicios de hosting, entrega de contenido y seguridad.",
+          "Tipo y versión del navegador, sistema operativo, idioma preferido y características técnicas del dispositivo usadas para compatibilidad, diagnóstico y comportamiento responsivo.",
+          "Mediciones agregadas de performance, disponibilidad y estabilidad generadas por Vercel Analytics solo cuando vos autorizás ese tratamiento.",
+          "Eventos y métricas de navegación tratados por Google Analytics (GA4), cuando están autorizados, para entender tráfico, comportamiento de uso y recorridos de navegación en forma agregada.",
+          "Cookies estrictamente técnicos y recursos equivalentes necesarios para el funcionamiento esencial del sitio; cookies no esenciales e identificadores analíticos solo después del consentimiento explícito.",
+          "Datos guardados en LocalStorage para recordar idioma, tema visual y la preferencia registrada en el banner de cookies, sin uso para perfilado publicitario propio."
+        ]
+      },
+      {
+        "title": "3. Uso de APIs y servicios de terceros",
+        "paragraphs": [
+          "La operación de este sitio depende de infraestructura y servicios externos para hosting, entrega de contenido, analytics y publicación de contenido. Eso incluye, por ejemplo, proveedores como Vercel para despliegue y mediciones técnicas autorizadas, Google Analytics para analytics de tráfico después del consentimiento y Sanity para la publicación de contenidos del blog.",
+          "Cuando utilizás un canal de contacto vinculado al sitio, la conversación puede continuar a través de plataformas externas adecuadas para el seguimiento profesional. En esos casos, algunos metadatos de conexión y la información que vos decidas compartir también pueden tratarse según los flujos y términos de privacidad del proveedor correspondiente.",
+          "Este portafolio usa esos servicios para presentar contenido, monitorear salud de la aplicación, entender interés por páginas y responder contactos profesionales, pero no controla de forma integral la disponibilidad, retención, seguridad o prácticas de tratamiento adoptadas por cada tercero."
+        ]
+      },
+      {
+        "title": "4. Cómo protegemos los datos",
+        "paragraphs": [
+          "Se adoptan medidas técnicas y organizativas razonables para reducir riesgos, incluyendo HTTPS, limitación de exposición innecesaria de datos, revisión de integraciones y activación de herramientas no esenciales únicamente después del consentimiento.",
+          "El sitio también procura aplicar el principio de minimización en las decisiones de producto: tratar solo lo necesario para la funcionalidad ofrecida, sin convertir el portafolio en un entorno de recolección excesiva de datos.",
+          "Ningún entorno conectado a internet está completamente libre de riesgos. Por eso, monitoreos, actualizaciones de dependencias, ajustes de configuración y revisiones de integraciones pueden realizarse de forma continua para reducir exposición operativa.",
+          "Si funcionalidades futuras pasan a requerir base de datos propia, autenticación, newsletters, formularios internos persistentes o automatizaciones de relacionamiento, deberán incorporarse controles compatibles con ese nuevo nivel de tratamiento antes de expandir el uso de datos."
+        ]
+      },
+      {
+        "title": "5. Tus derechos",
+        "paragraphs": [
+          "En los términos de la LGPD y, cuando corresponda, de otros marcos de protección de datos, vos podés solicitar información sobre el tratamiento de tus datos personales siempre que ese tratamiento exista de forma identificable en este contexto.",
+          "Las solicitudes se evaluarán de manera razonable, considerando obligaciones legales, limitaciones técnicas, necesidades de seguridad y la naturaleza de los datos efectivamente tratados por el servicio en cada funcionalidad."
+        ],
+        "bullets": [
+          "Confirmar si existe tratamiento y solicitar acceso a los datos personales relacionados con vos, cuando corresponda.",
+          "Solicitar corrección de datos incompletos, inexactos o desactualizados.",
+          "Pedir anonimización, bloqueo o eliminación de datos innecesarios, excesivos o tratados en forma contraria a la legislación aplicable, cuando corresponda.",
+          "Obtener información sobre compartición con terceros y sobre las bases legales u operativas que sostienen el tratamiento.",
+          "Revocar consentimiento o presentar oposición al tratamiento en los casos en que la ley permita ese camino."
+        ]
+      },
+      {
+        "title": "6. Cambios en la política y contacto",
+        "paragraphs": [
+          "Esta política puede actualizarse para reflejar cambios legales, técnicos, operativos o de producto. Cuando eso ocurra, la versión revisada se publicará en esta página junto con la fecha de actualización correspondiente.",
+          "Si un cambio modifica de forma relevante la manera en que se tratan datos personales, la intención es dar transparencia adicional antes de aplicarlo en la práctica, especialmente cuando se introduzcan nuevas integraciones, nuevas fuentes de analytics o funcionalidades persistentes de relacionamiento.",
+          "Para dudas, solicitudes o ejercicio de derechos, utilizá los canales oficiales de contacto publicados en este sitio. Si en el futuro se crea un canal específico de privacidad, será informado en esta misma página."
+        ]
+      }
+    ]
+  },
+  "cookiePolicy": {
+    "title": "Política de Cookies",
+    "footerLabel": "Preferencias de Cookies",
+    "eyebrow": "Cookies, analytics y preferencias de navegación",
+    "intro": "Esta Política de Cookies explica cómo este portafolio corporativo usa cookies, almacenamiento del navegador y tecnologías similares para mantener el sitio operativo, recordar tu elección de consentimiento y medir performance y tráfico profesional de forma proporcionada. Los analytics no esenciales solo se activan después de tu consentimiento previo, en línea con los principios de la LGPD, el GDPR y, cuando aplique, la CCPA.",
+    "sections": [
+      {
+        "title": "1. Qué son las cookies y tecnologías similares",
+        "body": "Las cookies son pequeños archivos almacenados en el navegador para recordar preferencias, sostener funcionalidades y medir uso. Además de cookies, este sitio también puede usar almacenamiento local del navegador para registrar tu elección de consentimiento y tecnologías equivalentes de telemetría compatibles con la infraestructura utilizada."
+      },
+      {
+        "title": "2. Cookies primarias usadas en este sitio",
+        "body": "Este sitio utiliza tecnologías primarias para mantener preferencias esenciales de navegación. Eso incluye el registro local de tu elección de consentimiento bajo la clave conzatti-cookie-consent y, cuando corresponda, preferencias técnicas del propio sitio, como idioma, tema o estado de interfaz. Estas tecnologías no tienen como finalidad publicidad comportamental."
+      },
+      {
+        "title": "3. Cookies e identificadores de terceros",
+        "body": "Después de tu aceptación, este sitio puede activar Vercel Analytics para lectura de performance y estabilidad y Google Analytics para medir tráfico B2B, origen de visitas, páginas visitadas e interacciones agregadas. Estos proveedores pueden usar cookies, identificadores online o tecnologías equivalentes para generar reportes operativos y estadísticos."
+      },
+      {
+        "title": "4. Finalidades del uso",
+        "body": "Las cookies e identificadores utilizados en este sitio sirven para registrar tu elección de consentimiento, entender alcance y relevancia del contenido publicado, monitorear performance técnica, identificar oportunidades de mejora en la experiencia y apoyar análisis agregados sobre interés comercial en páginas y contenidos del portafolio."
+      },
+      {
+        "title": "5. Base legal y activación por consentimiento",
+        "body": "Las cookies y tecnologías estrictamente necesarias pueden utilizarse para sostener preferencias esenciales y registrar tu decisión. En cambio, los recursos analíticos no esenciales, incluidos Vercel Analytics y Google Analytics, solo se habilitan después de tu aceptación explícita a través del banner de consentimiento. Sin esa aceptación, la navegación principal sigue disponible."
+      },
+      {
+        "title": "6. Cómo deshabilitar o revocar",
+        "body": "Podés deshabilitar cookies analíticas simplemente no haciendo clic en Aceptar en el banner. Si ya consentiste, también podés revocar o limitar ese uso limpiando los datos del sitio en tu navegador, bloqueando cookies de terceros en la configuración del browser o eliminando manualmente el almacenamiento local asociado a este dominio. Estas acciones pueden resetear preferencias guardadas."
+      },
+      {
+        "title": "7. Datos recolectados por analytics",
+        "body": "Cuando se concede consentimiento, los reportes analíticos pueden involucrar datos como URL visitada, idioma, navegador, dispositivo, fuente de tráfico, tiempo de permanencia, interacciones con páginas e identificadores técnicos seudonimizados. Este sitio aplica una lógica de minimización y no utiliza cookies para vender datos personales ni para publicidad comportamental propia."
+      },
+      {
+        "title": "8. Actualizaciones y contacto",
+        "body": "Esta Política de Cookies puede actualizarse para reflejar cambios legales, técnicos u operativos. La versión vigente permanecerá disponible en esta página. Si tenés dudas sobre cookies, consentimiento o privacidad, utilizá el canal de contacto disponible en este sitio."
+      }
+    ]
+  },
+  "nav": {
+    "blog": "Blog",
+    "portfolio": "Portafolio"
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "back": "Volver al Inicio",
+    "headerPrefix": "Soluciones &",
+    "headerHighlight": "PoCs",
+    "description": "Vitrina de soluciones enfocadas en resolver dolores de negocio en operaciones enterprise. Cada proyecto muestra discovery, arquitectura técnica y propuesta de valor con foco en ROI, reducción de costos y escalabilidad.",
+    "viewProject": "Ver Proyecto",
+    "code": "Código",
+    "access": "Acceder",
+    "guideIA": "Guía IA",
+    "diagnosis": "Diagnóstico",
+    "testTool": "Probar Herramienta",
+    "resourcesIntegrated": "Recursos integrados al sitio",
+    "wipHeader": "En Desarrollo",
+    "wipSubtitle": "Proximas soluciones en validacion - casos orientados a impacto de negocio.",
+    "wipBadge": "Próximamente",
+    "notifyMe": "Próximamente",
+    "projects": {
+      "julishub": {
+        "title": "JulisHub | PoC de Inteligencia Financiera",
+        "description": "Prueba de concepto para centralizar analitica financiera y acelerar decisiones con datos en tiempo real. Arquitectura desacoplada (React + Python + APIs) lista para escalar nuevos modulos con menor costo operativo.",
+        "tags": [
+          "React",
+          "Python",
+          "Integracion API",
+          "Analitica Financiera",
+          "Escalabilidad"
+        ]
+      },
+      "atendimento": {
+        "title": "Guia IA para Soporte | Caso de Negocio Enterprise",
+        "description": "Solucion arquitectonica que muestra como la IA puede escalar operaciones de atencion corporativa y bajar esfuerzo repetitivo. La propuesta de valor apunta a una reduccion de costos operativos de hasta 30%.",
+        "tags": [
+          "IA Enterprise",
+          "Knowledge Management",
+          "Reduccion de Costos",
+          "Escalabilidad Operativa",
+          "Caso de Exito"
+        ]
+      },
+      "gerador": {
+        "title": "Generador KCS con IA | PoC de Automatizacion",
+        "description": "PoC de automatizacion para optimizar la creacion y revision de articulos KCS con IA generativa. Convierte un proceso manual en uno asistido, con potencial de reducir hasta 40% el tiempo de produccion y acelerar onboarding.",
+        "tags": [
+          "Automatizacion de Procesos",
+          "IA Generativa",
+          "Google Gemini",
+          "Base de Conocimiento",
+          "Onboarding"
+        ]
+      },
+      "metodologias": {
+        "title": "Maestros del Diagnostico | Framework de Discovery Tecnico",
+        "description": "Framework para discovery tecnico y troubleshooting en escenarios complejos. Te ayuda a conectar hipotesis tecnicas con impacto de negocio para priorizar acciones y acelerar cierre de ventas en cuentas enterprise.",
+        "tags": [
+          "Discovery Tecnico",
+          "Troubleshooting",
+          "Soluciones Enterprise",
+          "Priorizacion de Riesgo",
+          "Propuesta de Valor"
+        ]
+      }
+    }
+  },
+  "experience": {
+    "header": "Trayectoria *Profesional*",
+    "subtitle": "Evolución de liderazgo técnico hacia ingeniería de ventas para crecimiento enterprise",
+    "items": [
+      {
+        "company": "Senior Sistemas",
+        "role": "Ingeniero de Ventas",
+        "period": "Mar 2026 - Presente",
+        "location": "Blumenau, SC (Híbrido)",
+        "description": "Lidero iniciativas de pre-venta para cuentas estratégicas, conectando escenarios técnicos complejos con propuestas comerciales de alto valor para clientes enterprise.",
+        "highlights": [
+          "Conducción de PoCs y discovery técnico para validar fit de solución y reducir riesgo de decisión",
+          "Diseño y ejecución de demostraciones técnicas de alto impacto, enfocadas en resultados de negocio",
+          "Alineación técnico-comercial con equipos de Ventas, Producto y Servicios para acelerar cierres"
+        ]
+      },
+      {
+        "company": "Senior Sistemas",
+        "role": "Líder Técnico de Soporte",
+        "period": "Nov 2024 - Presente",
+        "location": "Blumenau, SC",
+        "description": "Actué como Business Partner de la Coordinación en el liderazgo estratégico de Soporte, consolidando una base fuerte en lectura de contexto del cliente, priorización ejecutiva y comunicación orientada a valor.",
+        "highlights": [
+          "Liderazgo y desarrollo de equipo de alto rendimiento usando Matriz de Versatilidad",
+          "Gestión de stakeholders y punto focal para Clientes críticos y Canales de Distribución",
+          "Gestión de KPIs (SLA, CSAT, TMR) y creación de artefatos para auditorías",
+          "Fomentación de innovación con estudios de IA para optimizar diagnóstico y automatización de procesos"
+        ]
+      },
+      {
+        "company": "Senior Sistemas",
+        "role": "Contact Owner",
+        "period": "Ene 2024 - Nov 2024",
+        "location": "Blumenau, SC",
+        "description": "Fui responsable de la gestión estratégica del relacionamiento con clientes (Customer Success), convirtiendo feedback y señales de riesgo en planes de retención, expansión y adopción.",
+        "highlights": [
+          "Punto de contacto principal, orquestando equipos internos (Desarrollo, Producto)",
+          "Análisis de feedback de clientes para identificar tendencias",
+          "Propuestas de mejoras de procesos y servicios que impacten retención y fidelización"
+        ]
+      },
+      {
+        "company": "Senior Sistemas",
+        "role": "Analista de Soporte",
+        "period": "Ene 2014 - Oct 2017",
+        "location": "Blumenau, SC",
+        "description": "Resolví incidentes críticos y complejos, construyendo la base analítica y el conocimiento profundo de producto que hoy respaldan conversaciones técnicas de alto nivel en procesos comerciales.",
+        "highlights": [
+          "Especialista en diagnóstico de fallos técnicos de alto impacto en el negocio del cliente",
+          "Gestión de priorización de incidentes con comunicación clara y empática",
+          "Documentación precisa para Análisis de Causa Raíz (RCA)",
+          "Mentoría técnica y puente con equipos de Producto"
+        ]
+      },
+      {
+        "company": "Senior Sistemas",
+        "role": "Consultor de Soluciones e Implementación",
+        "period": "Nov 2017 - Dic 2022",
+        "location": "Blumenau, SC (Híbrido)",
+        "description": "Actué como el puente entre la necesidad de negocio del cliente y la solución técnica de Senior, liderando proyectos de implementación de sistemas de Gestión de Riesgos y Seguridad.",
+        "highlights": [
+          "Conducción de sesiones de levantamiento de requisitos, traduciendo reglas de negocio en alcance de proyecto",
+          "Responsable del diseño y desarrollo de integraciones (WebServices SOAP/REST) y customizaciones",
+          "Reconocimiento nacional en Asociación Comercial (2018, 2021) por mejores indicadores de desempeño",
+          "Experiencia con clientes de diversos segmentos (SAP, TOTVS, etc.)"
+        ]
+      },
+      {
+        "company": "XP Inc",
+        "role": "Asesor de Inversiones",
+        "period": "Dic 2022 - Dic 2023",
+        "location": "Remoto",
+        "description": "Período dedicado al desarrollo de competencias comerciales y de negocio en el mercado financiero.",
+        "highlights": [
+          "Gestión de relaciones y prospección de clientes (B2C)",
+          "Enfoque en planificación financiera y análisis de perfil de riesgo",
+          "Presentación de soluciones estratégicas con visión analítica",
+          "Construcción de relaciones de largo plazo basadas en confianza"
+        ]
+      }
+    ]
+  },
+  "certifications": {
+    "header": "Certificaciones y *Especialización*",
+    "subtitle": "Profundidad técnica, mirada financiera y método comercial para venta consultiva enterprise",
+    "background": {
+      "title": "Base Financiera y Visión de ROI",
+      "description": "Experiencia como Asesor de Inversiones en XP Investimentos, con aprobación ANCORD (CVM) y registro actualmente inactivo por compliance. Esa trayectoria me dio una lectura más fina de riesgo, retorno y construcción de casos de negocio para decisiones ejecutivas."
+    },
+    "categories": [
+      {
+        "title": "IA Aplicada a Negocios",
+        "description": "Uso IA para acelerar relevamiento, storytelling técnico y demos enfocadas en valor.",
+        "items": [
+          {
+            "title": "Pre-Maestría Internacional en Inteligencia Artificial",
+            "issuer": "Faculdade HUB & Magno Maciel",
+            "year": "2025",
+            "highlight": true
+          },
+          {
+            "title": "Mastering Generative AI for Business",
+            "issuer": "Nathan Labenz",
+            "year": "2025",
+            "highlight": true
+          },
+          {
+            "title": "Dominando Google Gemini",
+            "issuer": "Adapta.org",
+            "year": "2025",
+            "highlight": true
+          }
+        ]
+      },
+      {
+        "title": "Metodologías de Ventas y Negocios",
+        "description": "Frameworks comerciales aplicados a discovery profundo, manejo de objeciones y avance de oportunidades B2B.",
+        "items": [
+          {
+            "title": "SPIN Selling (Aplicado a Enterprise Sales)",
+            "issuer": "Práctica de campo y estudio aplicado",
+            "year": "Actual"
+          },
+          {
+            "title": "Prospección Fanática (Ejecución Comercial)",
+            "issuer": "Práctica de campo y estudio aplicado",
+            "year": "Actual"
+          },
+          {
+            "title": "Estrategia de Negocios y Carrera",
+            "issuer": "UpSkills",
+            "year": "2025"
+          }
+        ]
+      },
+      {
+        "title": "Fundamento Técnico y Operacional",
+        "description": "Base técnica sólida que respalda credibilidad en arquitectura, riesgo y viabilidad de solución.",
+        "items": [
+          {
+            "title": "Gestión de Riesgos y Seguridad XT",
+            "issuer": "Certificación Profesional",
+            "year": "2023"
+          },
+          {
+            "title": "Aplicaciones y Tecnología XT",
+            "issuer": "Certificación Profesional",
+            "year": "2024"
+          },
+          {
+            "title": "HDI Support Center Analyst (HDI-SCA)",
+            "issuer": "HDI",
+            "year": "2025"
+          }
+        ]
+      }
+    ]
+  },
+  "expertise": {
+    "header": "Areas de *Expertise*",
+    "subtitle": "Como genero valor en ventas complejas: de la necesidad de negocio al cierre con confianza técnica",
+    "pillars": [
+      {
+        "title": "Discovery y Diagnóstico Estratégico",
+        "description": "Lidero reuniones investigativas para relevar requerimientos técnicos, dinámica de stakeholders y dolores de negocio que no siempre están explícitos.",
+        "bullets": [
+          "Conduzco discovery con profundidad técnica y claridad ejecutiva",
+          "Detecto brechas de proceso, riesgo operativo y costo de no actuar",
+          "Convierto señales dispersas en hipótesis de valor y prioridades concretas"
+        ]
+      },
+      {
+        "title": "Demostración de Valor (PoCs y Demos)",
+        "description": "Diseño demos y PoCs de alto impacto para C-Levels y directorios, traduciendo features en impacto económico medible.",
+        "bullets": [
+          "Transformo capacidades técnicas en ROI, productividad y mitigación de riesgo",
+          "Armo narrativas por perfil decisor para acelerar consensos internos",
+          "Defino criterios de éxito para PoCs vinculados a decisiones de compra"
+        ]
+      },
+      {
+        "title": "Alineamiento Técnico-Comercial",
+        "description": "Actúo como puente entre ejecutivos, ventas y equipos técnicos para bajar fricción, anticipar objeciones y acelerar el cierre de ventas.",
+        "bullets": [
+          "Traduzco lenguaje técnico a prioridades de negocio sin perder precisión",
+          "Bajo requerimientos ejecutivos a direccionamiento accionable para Producto e Ingeniería",
+          "Mejoro la previsibilidad del pipeline con alineamiento continuo entre áreas"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "¿Vamos a *Conversar?*",
+    "description": "Siempre estoy abierto a discutir cómo el liderazgo técnico, la estrategia de negocios y la IA pueden transformar las operaciones de TI.",
+    "cta": "Ponerse en Contacto",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "whatsapp": "WhatsApp",
+    "email": "Email"
+  },
+  "blogPage": {
+    "headerPrefix": "Insights de",
+    "headerHighlight": "Sales Engineering",
+    "description": "Contenido sobre ventas tecnicas, discovery, demostracion de valor y operaciones de soporte en contextos enterprise. La propuesta es mostrar como la profundidad tecnica se transforma en ventaja comercial y resultados de negocio.",
+    "thanks": "Gracias por leer."
+  },
+  "blogUI": {
+    "readMore": "Leer Artículo",
+    "publishedAt": "Publicado en",
+    "writtenBy": "Escrito por",
+    "loading": "Cargando...",
+    "notFound": "Publicación no encontrada",
+    "back": "Volver al Blog",
+    "share": "Comparte esta publicación",
+    "related": "También te puede gustar",
+    "latestPost": "Última publicación del blog",
+    "latestPostLabel": "Última Publicación"
+  }
+}

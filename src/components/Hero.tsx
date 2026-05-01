@@ -2,111 +2,86 @@ import { ArrowRight, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import heroVideo from "@/assets/hero-background.mp4";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-import React, { useState, useEffect } from "react";
-import { client } from "@/lib/sanityClient";
-
-interface LatestPost {
-  title: string;
-  slug: {
-    current: string;
-  };
-  excerpt: string;
-}
-// Commit
+import { useLang } from "@/hooks/use-lang";
+import { renderWithHighlights } from "@/utils/renderUtils";
+import { useLatestPost } from "@/hooks/use-latest-post";
 
 export const Hero = () => {
   const { t } = useLanguage();
+  const { lp } = useLang();
 
-  const [latestPost, setLatestPost] = useState<LatestPost | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  // Função Auxiliar: Transforma texto entre *asteriscos* em negrito colorido
-  const renderWithHighlights = (text: string) => {
-    // Divide o texto onde houver asteriscos
-    const parts = text.split('*');
-    
-    return parts.map((part, index) => {
-      // Se o índice for ímpar (1, 3, 5...), é a parte que estava entre asteriscos
-      if (index % 2 === 1) {
-        return (
-          <strong key={index} className="text-primary font-semibold">
-            {part}
-          </strong>
-        );
-      }
-      // Se for par, é texto normal
-      return part;
-    });
-  };
-
-  useEffect(() => {
-    const query = `*[_type == "post"] | order(publishedAt desc) [0] {
-      title,
-      slug,
-      "excerpt": pt::text(body[0]) 
-    }`;
-    
-    client.fetch(query)
-      .then((data: LatestPost) => {
-        setLatestPost(data);
-        setLoading(false);
-      })
-      .catch(console.error);
-  }, []);
+  const { data: latestPost, isLoading: loading } = useLatestPost();
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-b from-background to-card">
-      <div className="max-w-5xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          {/* Profile Photo */}
-          <div className="hero-photo-cinematic">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary-glow rounded-full blur-2xl opacity-30 animate-glow-pulse" />
-              <img
-                src={profilePhoto}
-                alt="Juliano Heberhardt Conzatti"
-                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-elegant border-4 border-card transition-all duration-700 hover:scale-[1.02] hover:shadow-glow"
-              />
-            </div>
-          </div>
+    <section className="dark hero-section relative isolate min-h-screen overflow-hidden bg-slate-950 px-6 py-20">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="pointer-events-none absolute inset-0 -z-20 h-full w-full scale-[1.06] object-cover blur-[7px] brightness-[0.44] saturate-[0.78] contrast-110 md:scale-100 md:blur-[3px] md:brightness-[0.62] md:saturate-[0.9]"
+        src={heroVideo}
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-slate-950/88 via-slate-950/76 to-black/86 md:from-slate-950/72 md:via-slate-950/56 md:to-black/74" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_18%,rgba(15,23,42,0.08),rgba(2,6,23,0.52)_52%,rgba(2,6,23,0.84)_100%)] md:bg-[radial-gradient(circle_at_50%_18%,rgba(15,23,42,0.06),rgba(2,6,23,0.32)_48%,rgba(2,6,23,0.7)_100%)]" />
 
-          {/* Content */}
-          <div className="flex-1 text-center md:text-left space-y-6 animate-slide-in-right">
-            <div className="space-y-4">
-               <h1 className="hero-name-cinematic text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                 Juliano <span className="surname text-gradient">Conzatti</span>
-               </h1>
-               
-               <h2 className="hero-role-premium text-xl md:text-2xl lg:text-3xl font-semibold">
-                 {t('hero.role')}
-               </h2>
-               <p className="hero-subtext-cinematic text-lg md:text-xl text-muted-foreground">
-                 {t('hero.subtitle')}
-               </p>
-             </div>
+      <div className="relative z-10 mx-auto w-full max-w-5xl">
+        <div className="flex min-h-[calc(100vh-10rem)] items-center">
+          <div className="w-full px-2 md:px-0">
+            <div className="flex flex-col items-center gap-12 md:flex-row md:gap-16">
+            {/* Profile Photo */}
+              <div className="hero-photo-cinematic">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-primary-glow opacity-30 blur-2xl animate-glow-pulse" />
+                  <img
+                    src={profilePhoto}
+                    alt="Juliano Heberhardt Conzatti"
+                    className="relative h-64 w-64 rounded-full border-4 border-card object-cover shadow-elegant transition-all duration-700 hover:scale-[1.02] hover:shadow-glow md:h-80 md:w-80"
+                  />
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="relative flex-1 overflow-hidden rounded-[1.5rem] border border-white/5 bg-slate-950/14 px-6 py-8 text-center shadow-[0_16px_48px_rgba(2,6,23,0.2)] backdrop-blur-[8px] md:px-8 md:py-10 md:text-left">
+                <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(15,23,42,0.08),transparent_40%),linear-gradient(135deg,rgba(2,6,23,0.58),rgba(2,6,23,0.24)_42%,rgba(2,6,23,0.62))] md:bg-[radial-gradient(circle_at_20%_18%,rgba(15,23,42,0.12),transparent_36%),linear-gradient(90deg,rgba(2,6,23,0.74)_0%,rgba(2,6,23,0.42)_48%,rgba(2,6,23,0.12)_100%)]" />
+                <div className="space-y-4 animate-slide-in-right">
+                   <h1 className="hero-name-cinematic text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+                     Juliano <span className="surname text-gradient">Conzatti</span>
+                   </h1>
+                   
+                   <h2 className="hero-role-premium text-xl font-semibold text-primary/90 md:text-2xl lg:text-3xl">
+                     {t('hero.role')}
+                   </h2>
+                   <p className="hero-subtext-cinematic text-lg text-white/82 md:text-xl">
+                     {t('hero.subtitle')}
+                   </p>
+                 </div>
  
-             <div className="pt-4 max-w-2xl">
-               <p className="text-base md:text-lg leading-relaxed text-foreground/80">
-                 {/* AQUI ESTÁ A MÁGICA: Chamamos a função para renderizar o texto */}
-                 {renderWithHighlights(t('hero.description'))}
-               </p>
-             </div>
+                 <div className="max-w-2xl pt-4">
+                   <p className="text-base leading-relaxed text-white/88 md:text-lg">
+                     {/* AQUI ESTÁ A MÁGICA: Chamamos a função para renderizar o texto */}
+                     {renderWithHighlights(t('hero.description'), "text-primary font-semibold")}
+                   </p>
+                 </div>
  
-             <div className="pt-6 flex flex-col sm:flex-row gap-4">
-               <Button
-                 size="lg"
-                 className="group bg-gradient-to-r from-primary to-primary-glow hover:shadow-glow transition-smooth text-lg px-8 py-6"
-                 asChild
-               >
-                 <a href="https://taggo.one/hcjuliano" target="_blank" rel="noopener noreferrer">
-                   {t('hero.cta')}
-                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                 </a>
-               </Button>
-             </div>
+                 <div className="flex flex-col gap-4 pt-6 sm:flex-row">
+                   <Button
+                     size="lg"
+                     className="group bg-gradient-to-r from-primary to-primary-glow px-8 py-6 text-lg transition-smooth hover:shadow-glow"
+                     asChild
+                   >
+                     <a href="https://taggo.one/hcjuliano" target="_blank" rel="noopener noreferrer">
+                       {t('hero.cta')}
+                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                     </a>
+                   </Button>
+                 </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -135,7 +110,7 @@ export const Hero = () => {
                     {latestPost.excerpt ? latestPost.excerpt.substring(0, 150) + '...' : t('blogUI.readMore') + '...'}
                   </p>
                   <Button variant="outline" className="group" asChild>
-                    <Link to={`/blog/${latestPost.slug.current}`}>
+                    <Link to={lp(`/blog/${latestPost.slug.current}`)}>
                       {t('blogUI.readMore')}
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
