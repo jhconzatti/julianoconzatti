@@ -29,6 +29,9 @@ export const Hero = () => {
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-slate-950/88 via-slate-950/76 to-black/86 md:from-slate-950/72 md:via-slate-950/56 md:to-black/74" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_18%,rgba(15,23,42,0.08),rgba(2,6,23,0.52)_52%,rgba(2,6,23,0.84)_100%)] md:bg-[radial-gradient(circle_at_50%_18%,rgba(15,23,42,0.06),rgba(2,6,23,0.32)_48%,rgba(2,6,23,0.7)_100%)]" />
 
+      {/* Bottom fade — dissolve into page background */}
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-52 z-[1] bg-gradient-to-b from-transparent to-[hsl(222_47%_6%)]" aria-hidden="true" />
+
       <div className="relative z-10 mx-auto w-full max-w-5xl">
         <div className="flex min-h-[calc(100vh-10rem)] items-center">
           <div className="w-full px-2 md:px-0">

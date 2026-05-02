@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useLang } from "@/hooks/use-lang";
@@ -45,10 +44,7 @@ export const Navigation = () => {
           <Link to={lp('/')} className="jc-glass-loop text-2xl font-bold text-gradient hover:opacity-90 transition-opacity duration-500">
             JC
           </Link>
-          {/* ThemeToggle posicionado aqui, visível apenas em Desktop */}
-          <div className="hidden md:block">
-            <ThemeToggle />
-          </div>
+
         </div>
 
         {/* LADO DIREITO: Links de Navegação + LanguageToggle */}
@@ -102,7 +98,6 @@ export const Navigation = () => {
               <span className="text-muted-foreground text-sm">Configurações</span>
               <div className="flex gap-3">
                 <LanguageToggle />
-                <ThemeToggle />
               </div>
             </div>
           </div>
