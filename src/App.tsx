@@ -6,7 +6,7 @@ import { BrowserRouter, Navigate, Routes, Route, useParams } from "react-router-
 import { lazy, Suspense } from "react";
 
 import { LanguageProvider } from "./contexts/LanguageContext";
-import { ConsentAwareAnalytics } from "./components/ConsentAwareAnalytics";
+import { AnalyticsTracker } from "./components/AnalyticsTracker";
 import { CookieBanner } from "./components/CookieBanner";
 import { LanguageSEO } from "./components/SeoMeta";
 import { LanguageRouter } from "./components/LanguageRouter";
@@ -97,7 +97,7 @@ const App = () => (
             </Routes>
           </Suspense>
           <CookieBanner />
-          <ConsentAwareAnalytics />
+          <AnalyticsTracker />
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>
